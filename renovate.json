@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    "group:allNonMajor",
+    ":semanticCommitTypeAll(build)"
+  ],
+  "schedule": ["on the first day instance on friday after 9pm"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["github.com/cloudflare/cloudflare-go"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["docker/dockerfile"],
+      "enabled": false
+    }
+  ],
+  "postUpdateOptions": ["gomodTidy"]
+}
